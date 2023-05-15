@@ -1,0 +1,60 @@
+[
+  {
+    "model": "blog.tag",
+    "pk": 1,
+    "fields": {
+      "name": "tag #1"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 2,
+    "fields": {
+      "name": "tag #2"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 3,
+    "fields": {
+      "name": "tag #3"
+    }
+  },
+  {
+    "model": "blog.tag",
+    "pk": 4,
+    "fields": {
+      "name": "tag #4"
+    }
+  },
+
+  {
+    "model": "blog.category",
+    "pk": 1,
+    "fields": {
+      "name": "category #1"
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 2,
+    "fields": {
+      "name": "category #2"
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 3,
+    "fields": {
+      "name": "category #3"
+    }
+  },
+  {
+    "model": "blog.category",
+    "pk": 4,
+    "fields": {
+      "name": "category #4",
+      "parent_category": 2
+    }
+  }
+]

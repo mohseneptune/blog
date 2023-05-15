@@ -1,0 +1,42 @@
+[
+  {
+    "model": "blog.post",
+    "pk": 1,
+    "fields": {
+      "title": "post #1",
+      "content": "post #1 content. If writer’s block has gotten the better of you and you’re sick of staring at a blank page, blog post templates might be the solution. Every blog post is different, but most aren’t that different. Think about the blog posts you’ve read. Chances are they weren’t a million miles apart in terms of format. You probably just didn’t pay much attention because you were focused on the content. For bloggers, this is good news. It means that no matter what you’re writing about, templates can make life easier.",
+      "author": 1,
+      "category": 1
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 2,
+    "fields": {
+      "title": "post #2",
+      "content": "post #2 content. If writer’s block has gotten the better of you and you’re sick of staring at a blank page, blog post templates might be the solution. Every blog post is different, but most aren’t that different. Think about the blog posts you’ve read. Chances are they weren’t a million miles apart in terms of format. You probably just didn’t pay much attention because you were focused on the content. For bloggers, this is good news. It means that no matter what you’re writing about, templates can make life easier.",
+      "author": 1,
+      "category": 3
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 3,
+    "fields": {
+      "title": "post #3",
+      "content": "post #3 content. If writer’s block has gotten the better of you and you’re sick of staring at a blank page, blog post templates might be the solution. Every blog post is different, but most aren’t that different. Think about the blog posts you’ve read. Chances are they weren’t a million miles apart in terms of format. You probably just didn’t pay much attention because you were focused on the content. For bloggers, this is good news. It means that no matter what you’re writing about, templates can make life easier.",
+      "author": 1,
+      "category": 2
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 4,
+    "fields": {
+      "title": "post #4",
+      "content": "post #4 content. If writer’s block has gotten the better of you and you’re sick of staring at a blank page, blog post templates might be the solution. Every blog post is different, but most aren’t that different. Think about the blog posts you’ve read. Chances are they weren’t a million miles apart in terms of format. You probably just didn’t pay much attention because you were focused on the content. For bloggers, this is good news. It means that no matter what you’re writing about, templates can make life easier.",
+      "author": 1,
+      "category": 4
+    }
+  }
+]
