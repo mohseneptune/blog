@@ -57,20 +57,17 @@ class Post(models.Model):
     class Meta:
         ordering = ("-publish",)
 
-    def get_slug(self):
-        slug = slugify(self.title)
-        unique_slug = slug
-
-        number = 1
-        while Post.objects.filter(slug=unique_slug).exists():
-            unique_slug = f"{slug}-{number}"
-            number += 1
-
-        return unique_slug
-
     def save(self, *args, **kwargs) -> None:
+
         if not self.slug:
-            self.slug = self.get_slug()
+            # generate a unique slug for post
+            unique_slug = slugify(self.title)
+            number = 2
+            while Post.objects.filter(slug=unique_slug).exists():
+                unique_slug = f"{unique_slug}-{number}"
+                number += 1
+            self.slug = unique_slug
+
         return super().save(*args, **kwargs)
 
     def __str__(self):
