@@ -1,12 +1,12 @@
-import Typography from '@mui/material/Typography'
+import React from "react";
+import Navbar from "./components/Navbar";
+import Posts from "./components/Posts";
+
 function App() {
-  return (
-    <>
-    <Typography variant="h4">
-      Hello World !!!
-    </Typography>
-    </>
-  );
+  return <React.Fragment>
+    <Navbar />
+    <Posts />
+  </React.Fragment>;
 }
 
 export default App;

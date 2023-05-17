@@ -49,7 +49,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, null=True)
 
     objects = models.Manager()  # The default manager.
     published_objects = PublishedPostsManager()  # The published posts manager.
