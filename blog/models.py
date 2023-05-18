@@ -10,17 +10,27 @@ User = get_user_model()
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     parent_category = models.ForeignKey(
         "self", related_name="sub_categories", on_delete=models.SET_NULL, null=True
     )
+    slug = models.SlugField(unique=True, null=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name.lower())
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=250)
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, null=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name.lower())
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -37,12 +47,12 @@ class Post(models.Model):
 
     STATUS_CHOICES = (("draft", "Draft"), ("published", "Published"))
 
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=250, unique=True)
     content = models.TextField()
 
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
-    tags = models.ManyToManyField(Tag)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='posts')
+    tags = models.ManyToManyField(Tag, related_name="posts")
 
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
@@ -57,8 +67,8 @@ class Post(models.Model):
     class Meta:
         ordering = ("-publish",)
 
-    def save(self, *args, **kwargs) -> None:
 
+    def save(self, *args, **kwargs) -> None:
         if not self.slug:
             # generate a unique slug for post
             unique_slug = slugify(self.title)

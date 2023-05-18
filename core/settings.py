@@ -17,12 +17,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "account",
     "blog",
-
     "rest_framework",
     "corsheaders",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -64,10 +63,18 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = [
-    { "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator", },
-    { "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", },
-    { "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", },
-    { "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", },
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
 ]
 
 LANGUAGE_CODE = "en-us"
@@ -83,3 +90,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:3000",
 ]
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"]
+}
